@@ -13,17 +13,18 @@ Selain dampak finansial, tingginya angka *dropout* berisiko menurunkan reputasi 
 ### Pertanyaan Bisnis
 Untuk menjawab permasalahan bisnis tersebut, proyek ini akan menjawab beberapa pertanyaan analisis utama sebagai berikut:
 
-1. Berapa proporsi dan tingkat distribusi status mahasiswa (*Dropout*, *Enrolled*, dan *Graduate*) saat ini di Jaya Jaya Institut?
-2. Bagaimana pengaruh indikator akademis semester awal (seperti jumlah unit mata kuliah yang disetujui/`approved`, jumlah evaluasi, serta rata-rata nilai semester 1 dan 2) terhadap risiko *dropout* mahasiswa?
-3. Sejauh mana faktor finansial dan bantuan studi (seperti status tunggakan uang kuliah/`Debtor`, kelancaran pembayaran SPP/`Tuition fees up to date`, dan status penerima beasiswa/`Scholarship holder`) memengaruhi keputusan mahasiswa untuk bertahan atau *dropout*?
-4. Apakah faktor demografi dan latar belakang pendaftaran (seperti usia saat mendaftar/`Age at enrollment`, gender, status pernikahan, status perantau/`Displaced`, jalur masuk/`Application mode`, serta tingkat pendidikan/pekerjaan orang tua) memiliki korelasi signifikan dengan tingkat keberhasilan studi?
-5. Apakah kondisi makroekonomi (seperti `Unemployment rate`, `Inflation rate`, dan `GDP`) turut memengaruhi dinamika *dropout* mahasiswa?
-6. Profil atau segmen mahasiswa seperti apa yang memiliki risiko *dropout* paling tinggi sehingga memerlukan bimbingan dan intervensi khusus sedini mungkin?
+1. Berapa banyak mahasiswa yang saat ini statusnya *Dropout*, *Enrolled* (masih aktif), dan *Graduate* (lulus) di Jaya Jaya Institut?
+2. Seberapa besar pengaruh jumlah mata kuliah yang lulus (`approved`) dan rata-rata nilai (`grade`) di semester 1 dan 2 terhadap risiko mahasiswa *dropout*?
+3. Apakah masalah keuangan seperti punya tunggakan (`Debtor`) atau terlambat bayar SPP (`Tuition_fees_up_to_date`) menjadi alasan utama mahasiswa berhenti kuliah atau *dropout*?
+4. Seberapa efektif program beasiswa (`Scholarship_holder`) dalam mencegah dan menekan angka *dropout* mahasiswa?
+5. Apakah faktor usia saat masuk (`Age_at_enrollment`), jenis kelamin, atau status pernikahan membuat mahasiswa lebih rawan mengalami *dropout*?
+6. Apakah kondisi ekonomi luar (seperti tingkat pengangguran, inflasi, dan GDP) ikut memengaruhi keputusan mahasiswa untuk berhenti kuliah?
+7. Seperti apa profil atau ciri-ciri mahasiswa yang paling berisiko *dropout* berdasarkan karakteristik akademis, finansial, dan demografi, agar tim kemahasiswaan bisa cepat memberikan bimbingan khusus?
 
 ### Cakupan Proyek
 Proyek ini mencakup alur kerja analisis data pendidikan secara end-to-end dengan batasan proses dan output akhir sebagai berikut:
 
-* **Eksplorasi & Pembersihan Data:** Memproses dan membersihkan dataset performa mahasiswa (*students' performance*) yang mencakup 36 fitur (demografi, latar belakang akademis, sosio-ekonomi, indikator akademis semester 1 & 2, serta makroekonomi) dan 1 variabel target (`Target`) untuk memastikan kualitas data yang siap dianalisis.
+* **Eksplorasi & Pembersihan Data:** Memproses dan membersihkan dataset performa mahasiswa (*students' performance*) yang mencakup 36 fitur (demografi, latar belakang akademis, sosio-ekonomi, indikator akademis semester 1 & 2, serta makroekonomi) dan 1 variabel target (`Status`) untuk memastikan kualitas data yang siap dianalisis.
 * **Penyimpanan Data (Data Warehouse):** Mengonfigurasi dan memuat dataset yang telah dibersihkan ke dalam database PostgreSQL di Supabase.
 * **Analisis Data & Formulasi Strategi:** Menganalisis pola *dropout* pada berbagai segmen (seperti tingkat kelulusan mata kuliah semester awal, status pembayaran SPP, status beasiswa, dan latar belakang sosio-ekonomi) untuk mengidentifikasi pemicu utama kegagalan studi.
 * **Pengembangan Business Dashboard:** Merancang dan membangun dashboard visualisasi data interaktif menggunakan **Metabase** untuk memantau metrik utama performa mahasiswa serta memetakan faktor risiko *dropout*.
@@ -38,9 +39,7 @@ Proyek ini mencakup alur kerja analisis data pendidikan secara end-to-end dengan
 
 ### Persiapan
 
-Sumber data: ....
-
-**Sumber data:** Dataset internal karyawan Jaya Jaya Maju ('employee_data.csv') yang mencakup variabel demografi, kepuasan kerja, kompensasi, jam kerja, dan status *attrition*. Tautan dataset dapat diakses melalui [Link Dataset](https://github.com/NuryaFahruRosyidin2406/Submission-Pertama-Menyelesaikan-Permasalahan-Human-Resources_Dicoding/tree/4b2219c75eeb4c7201a9da81ade9dd361f26bdb8/Dataset).
+**Sumber data:** Dataset *students_performance* di Jaya Jaya Institut ('data.csv') yang mencakup variabel demografi mahasiswa, latar belakang pendidikan & orang tua, status finansial/beasiswa, performa akademik semester 1 dan 2, indikator sosio-ekonomi, serta status kelulusan mahasiswa (*Status*: Graduate, Dropout, Enrolled). Tautan dataset dapat diakses melalui [Link Dataset](https://github.com/NuryaFahruRosyidin2406/Submission-Akhir-Dicoding-Menyelesaikan-Permasalahan-Institusi-Pendidikan/tree/main/Dataset/students_performance).
 
 Setup environment:
 ```
