@@ -6,5 +6,5 @@ joblib
 matplotlib
 seaborn
 sqlalchemy
-psycopg2
+psycopg2-binary
 streamlit
