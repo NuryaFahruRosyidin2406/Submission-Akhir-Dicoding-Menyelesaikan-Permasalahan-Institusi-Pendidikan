@@ -47,7 +47,17 @@ Setup environment:
 ```
 
 ## Business Dashboard
-Jelaskan tentang business dashboard yang telah dibuat. Jika ada, sertakan juga link untuk mengakses dashboard tersebut.
+
+Dashboard Student Performance & Dropout Analytics ini dikembangkan menggunakan **Metabase** untuk memantau tingkat kelulusan serta mengidentifikasi faktor-faktor risiko yang menyebabkan mahasiswa berhenti kuliah (*dropout*) di Jaya Jaya Institut. Desain visual menggunakan pendekatan *dark theme* dengan skema warna intuitif (hijau untuk mahasiswa lulus, biru untuk mahasiswa aktif, dan merah untuk indikator risiko *dropout*) agar *data storytelling* tersampaikan dengan jelas.
+
+Dashboard ini terbagi menjadi lima area analisis utama, yaitu:
+1. **Gambaran Umum & Performa Akademik:** Ini menampilkan KPI populasi mahasiswa berdasarkan status akhir (Graduate, Enrolled, Dropout) serta menguraikan korelasi antara capaian SKS lulus dan rerata nilai pada semester 1 dan 2 terhadap risiko *dropout*.
+2. **Analisis Keuangan & Beasiswa:** Ini mengidentifikasi hubungan antara masalah finansial (kelancaran SPP dan status tunggakan hutang) serta efektivitas program beasiswa dalam menekan angka *dropout* mahasiswa.
+3. **Profil Demografi & Faktor Sosial:** Ini menganalisis dampak usia saat mendaftar, jenis kelamin, dan status pernikahan terhadap tingkat kerentanan mahasiswa mengalami putus studi.
+4. **Indikator Lingkungan Ekonomi Makro:** Ini memantau pengaruh tren kondisi ekonomi luar seperti tingkat pengangguran, inflasi, dan pertumbuhan GDP terhadap keputusan mahasiswa untuk melanjutkan atau menghentikan perkuliahan.
+5. **Profil Risiko Mahasiswa:** Ini memetakan matriks risiko berdasarkan capaian SKS awal, kombinasi status finansial-beasiswa, dan kelompok usia untuk membantu tim kemahasiswaan supaya bisa cepat memberikan bimbingan khusus.
+
+**Link Dashboard:** [Link Metabase di Sini]
 
 ## Menjalankan Sistem Machine Learning
 Jelaskan cara menjalankan protoype sistem machine learning yang telah dibuat. Selain itu, sertakan juga link untuk mengakses prototype tersebut.
