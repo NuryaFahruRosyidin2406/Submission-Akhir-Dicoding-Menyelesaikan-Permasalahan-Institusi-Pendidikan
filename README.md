@@ -38,12 +38,82 @@ Proyek ini mencakup alur kerja analisis data pendidikan secara end-to-end dengan
   6. **Saran rekomendasi *action items*** untuk membantu Jaya Jaya Institut memberikan bimbingan khusus dan menekan angka *dropout*.
 
 ### Persiapan
-**Sumber data:** Dataset *students_performance* di Jaya Jaya Institut ('data.csv') yang mencakup variabel demografi mahasiswa, latar belakang pendidikan & orang tua, status finansial/beasiswa, performa akademik semester 1 dan 2, indikator sosio-ekonomi, serta status kelulusan mahasiswa (*Status*: Graduate, Dropout, Enrolled). Tautan dataset dapat diakses melalui [Link Dataset](https://github.com/NuryaFahruRosyidin2406/Submission-Akhir-Dicoding-Menyelesaikan-Permasalahan-Institusi-Pendidikan/tree/main/Dataset/students_performance).
+#### **Sumber data:** Dataset *students_performance* di Jaya Jaya Institut ('data.csv') yang mencakup variabel demografi mahasiswa, latar belakang pendidikan & orang tua, status finansial/beasiswa, performa akademik semester 1 dan 2, indikator sosio-ekonomi, serta status kelulusan mahasiswa (*Status*: Graduate, Dropout, Enrolled). Tautan dataset dapat diakses melalui [Link Dataset](https://github.com/NuryaFahruRosyidin2406/Submission-Akhir-Dicoding-Menyelesaikan-Permasalahan-Institusi-Pendidikan/tree/main/Dataset/students_performance).
 
-Setup environment:
-```
+#### **Setup environment**:
+Berikut ini adalah panduan dalam menyiapkan environment
 
-```
+* **Prerequisites & Versions**
+   1. **Python Version:** `3.13.7`
+   2. **Metabase Version:** `v0.63.16.9`
+   3. **Miniconda Version:** `26.7.1`
+
+#### 1. Eksplorasi Data & Pemrosesan Awal (Google Colab)
+1. Buka berkas `notebook.ipynb` di [Google Colab](https://colab.research.google.com/).
+2. Unggah file `requirements.txt` ke direktori kerja Colab (panel *Files* di sebelah kiri).
+3. Jalankan sel pertama untuk menginstal seluruh dependensi:
+   ```bash
+   !pip install -r requirements.txt
+   ```
+
+#### 2. Konfigurasi Dashboard Metabase (Local Machine via Docker)
+1. Jalankan Container Metabase (Pertama Kali):
+
+    Buka Terminal / Command Prompt, lalu jalankan perintah:
+
+    ```bash
+    docker run -p 3000:3000 --name metabase metabase/metabase
+    ```
+
+2. Menjalankan Kembali Container yang Sudah Ada:
+
+    Jika container sudah pernah dibuat sebelumnya, jalankan:
+
+    ```bash
+    docker start metabase
+    ```
+
+3. Akses & Hubungkan ke Supabase:
+
+    * Buka peramban (browser) dan akses http://localhost:3000.
+
+    * Hubungkan Metabase ke PostgreSQL Supabase menggunakan kredensial database proyek.
+
+#### 3. Pengolahan Lokal & Aplikasi Streamlit (Anaconda / Miniconda)
+1. Buka Terminal / Anaconda Prompt dan buat environment baru:
+
+    ```bash
+    conda create -n jaya-jaya-env python=3.11 -y
+    ```
+
+2. Aktifkan Environment:
+
+    ```bash
+    conda activate jaya-jaya-env
+    ```
+
+3. Clone Repository & Install Dependensi:
+
+    ```bash
+    git clone [https://github.com/username/repository-kamu.git](https://github.com/username/repository-kamu.git)
+    cd repository-kamu
+    pip install -r requirements.txt
+    ```
+
+4. Menjalankan Aplikasi Streamlit Lokal:
+
+    ```bash
+    streamlit run app.py
+    ```
+
+#### 4. Deployment Aplikasi Online (Streamlit Community Cloud)
+Aplikasi prototype ini juga di-deploy secara online menggunakan file modular data_preprocessing.py, prediction.py, dan app.py:
+
+1. Push seluruh perubahan file beserta requirements.txt ke repositori GitHub.
+
+2. Buka share.streamlit.io dan hubungkan dengan repositori GitHub proyek.
+
+3. Pastikan memilih Python 3.11 pada menu App Settings.
 
 ## Business Dashboard
 Dashboard Student Performance & Dropout Analytics ini dikembangkan menggunakan **Metabase** untuk memantau tingkat kelulusan serta mengidentifikasi faktor-faktor risiko yang menyebabkan mahasiswa berhenti kuliah (*dropout*) di Jaya Jaya Institut. Desain visual menggunakan pendekatan *dark theme* dengan skema warna intuitif (hijau untuk mahasiswa lulus, biru untuk mahasiswa aktif, dan merah untuk indikator risiko *dropout*) agar *data storytelling* tersampaikan dengan jelas.
@@ -58,11 +128,19 @@ Dashboard ini terbagi menjadi lima area analisis utama, yaitu:
 **Link Dashboard:** [Link Metabase di Sini]
 
 ## Menjalankan Sistem Machine Learning
-Jelaskan cara menjalankan protoype sistem machine learning yang telah dibuat. Selain itu, sertakan juga link untuk mengakses prototype tersebut.
+Prototype sistem *machine learning* ini dikembangkan menggunakan *framework* Streamlit untuk memprediksi risiko *dropout* mahasiswa Jaya-Jaya Institut.
 
+### 1. Menjalankan Secara Lokal (Local Environment)
+Sebelum menjalankan aplikasi secara lokal, pastikan seluruh dependensi telah terpasang (lihat bagian *Setup Environment*). Kemudian jalankan perintah berikut di terminal:
+
+```bash
+streamlit run app.py
 ```
 
-```
+Setelah perintah dijalankan, browser akan otomatis membuka antarmuka aplikasi pada alamat lokal http://localhost:8501.
+
+### 2. Mengakses Prototype Streamlit Online (Cloud Deployment)
+Sistem prototype yang di deploy ke Streamlit Community Cloud dapat diakses secara langsung tanpa perlu melakukan instalasi lokal. Berikut ini adalah tautan link untuk mengakses Prototype Streamlit Online [https://jaya-jaya-institute-dropout-prediction.streamlit.app](https://jaya-jaya-institute-dropout-prediction.streamlit.app)
 
 ## Conclusion
 Berdasarkan hasil analisis data dan visualisasi pada **Jaya Jaya Institut - Student Performance & Dropout Analytics Dashboard**, berikut ini ada beberapa kesimpulan yang dapat diambil, seperti:
