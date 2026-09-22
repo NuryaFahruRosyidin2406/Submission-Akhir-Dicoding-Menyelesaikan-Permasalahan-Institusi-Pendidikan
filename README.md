@@ -38,7 +38,6 @@ Proyek ini mencakup alur kerja analisis data pendidikan secara end-to-end dengan
   6. **Saran rekomendasi *action items*** untuk membantu Jaya Jaya Institut memberikan bimbingan khusus dan menekan angka *dropout*.
 
 ### Persiapan
-
 **Sumber data:** Dataset *students_performance* di Jaya Jaya Institut ('data.csv') yang mencakup variabel demografi mahasiswa, latar belakang pendidikan & orang tua, status finansial/beasiswa, performa akademik semester 1 dan 2, indikator sosio-ekonomi, serta status kelulusan mahasiswa (*Status*: Graduate, Dropout, Enrolled). Tautan dataset dapat diakses melalui [Link Dataset](https://github.com/NuryaFahruRosyidin2406/Submission-Akhir-Dicoding-Menyelesaikan-Permasalahan-Institusi-Pendidikan/tree/main/Dataset/students_performance).
 
 Setup environment:
@@ -47,7 +46,6 @@ Setup environment:
 ```
 
 ## Business Dashboard
-
 Dashboard Student Performance & Dropout Analytics ini dikembangkan menggunakan **Metabase** untuk memantau tingkat kelulusan serta mengidentifikasi faktor-faktor risiko yang menyebabkan mahasiswa berhenti kuliah (*dropout*) di Jaya Jaya Institut. Desain visual menggunakan pendekatan *dark theme* dengan skema warna intuitif (hijau untuk mahasiswa lulus, biru untuk mahasiswa aktif, dan merah untuk indikator risiko *dropout*) agar *data storytelling* tersampaikan dengan jelas.
 
 Dashboard ini terbagi menjadi lima area analisis utama, yaitu:
@@ -67,9 +65,42 @@ Jelaskan cara menjalankan protoype sistem machine learning yang telah dibuat. Se
 ```
 
 ## Conclusion
-Jelaskan konklusi dari proyek yang dikerjakan.
+Berdasarkan hasil analisis data dan visualisasi pada **Jaya Jaya Institut - Student Performance & Dropout Analytics Dashboard**, berikut ini ada beberapa kesimpulan yang dapat diambil, seperti:
+
+### 1. Gambaran Umum & Distribusi Status Mahasiswa
+* Dari total **4.424 mahasiswa** yang terdata, sebanyak **1.421 mahasiswa** berstatus **Dropout**, **794 mahasiswa** berstatus **Enrolled** (masih aktif), dan **2.209 mahasiswa** berhasil **Graduate** (lulus).
+* Angka *dropout* ini tergolong tinggi dan berdampak langsung pada potensi kehilangan pendapatan SPP/UKT serta efisiensi operasional institusi.
+
+### 2. Faktor Pemicu Utama & Profil Karakteristik Mahasiswa Berisiko Dropout
+* **Faktor Akademis:** Performa semester 1 dan 2 menjadi prediktor paling krusial. Mahasiswa *dropout* rata-rata hanya lulus **2,55 MK (Semester 1)** dan **1,94 MK (Semester 2)** dengan rerata nilai **7,26** dan **5,90**. Angka ini jauh di bawah mahasiswa yang lulus (*Graduate*), yang rata-rata menyelesaikan **> 6 MK** per semester dengan rata-rata nilai **> 12,6**.
+* **Faktor Finansial & SPP:** Kelancaran pembayaran SPP sangat memengaruhi keberlanjutan studi. Sebanyak **457 dari 528 mahasiswa yang menunggak SPP** berakhir *dropout*. Sebaliknya, mahasiswa yang lancar membayar SPP mayoritas berhasil lulus (2.180 mahasiswa).
+* **Efektivitas Beasiswa:** Program beasiswa terbukti sangat efektif menekan angka putus kuliah. Dari **1.099 penerima beasiswa**, sebanyak **835 orang** berhasil lulus dan hanya **134 orang** yang *dropout*. Sementara pada kelompok non-beasiswa, angka *dropout* melonjak hingga **1.287 dari 3.325 mahasiswa**.
+* **Demografi (Usia Masuk, Gender, & Status Pernikahan):**
+  * **Usia Masuk:** Mahasiswa yang mendaftar pada usia lebih matang (**> 30 tahun**) memiliki proporsi *dropout* tertinggi, yaitu **355 dari 662 mahasiswa**, diikuti kelompok usia **25–30 tahun (276 dari 476 mahasiswa)**.
+  * **Jenis Kelamin:** Mahasiswa **Laki-laki** memiliki rasio *dropout* lebih tinggi (**701 dari 1.556 total mahasiswa laki-laki**) dibandingkan mahasiswa **Perempuan** (**720 dari 2.868 total mahasiswa perempuan**).
+  * **Status Pernikahan:** Mahasiswa dengan status menikah atau pernah menikah (bercerai/berpisah) menunjukkan persentase *dropout* yang signifikan lebih rendah dibanding yang belum menikah.
+* **Kondisi Makroekonomi:** Tingkat pengangguran dan inflasi relatif stabil pada ketiga kelompok status mahasiswa. Namun, tren **GDP yang negatif (-0,15)** berasosiasi dengan kelompok mahasiswa *dropout*, ini mengindikasikan bahwa penurunan kondisi ekonomi makro dapat berpotensi mengganggu stabilitas finansial keluarga/mahasiswa.
+
+### 3. Matriks Kombinasi Risiko Kritis
+Terdapat **267 mahasiswa** (dropout) yang berada di zona risiko paling tinggi (*critical zone*), yaitu mahasiswa yang **memiliki tunggakan SPP sekaligus lulus kurang dari 3 mata kuliah di semester 1**. Selain itu, mahasiswa yang **tidak menerima beasiswa dan menunggak SPP** mencatatkan angka *dropout* sekitar **429 mahasiswa**.
 
 ### Rekomendasi Action Items
-Berikan beberapa rekomendasi action items yang harus dilakukan perusahaan guna menyelesaikan permasalahan atau mencapai target mereka.
-- action item 1
-- action item 2
+Berdasarkan temuan data pada dashboard dan hasil prediksi model, berikut ini ada beberapa rekomendasi aksi strategis berbasis data untuk dapat menekan angka *dropout* di Jaya Jaya Institut:
+
+### 1. Sistem Peringatan Dini & Intervensi Akademis Semester Awal (Prioritas 1)
+* **Insight Data:** Mahasiswa *dropout* mengalami penurunan drastis dalam kelulusan MK sejak Semester 1 hingga Semester 2.
+* **Aksi Strategis:**
+  * Mengintegrasikan aplikasi prediksi berbasis Machine Learning (Streamlit) ke dalam sistem akademik kampus untuk mendeteksi mahasiswa yang berisiko tinggi untuk *dropout* sebelum semester berjalan usai.
+  * Mewajibkan atau mengadakan program bimbingan/konseling akademik dan kelas belajar bareng bagi mahasiswa yang lulus **< 3 MK** pada evaluasi pertengahan/akhir Semester 1.
+
+### 2. Skema Bantuan Finansial & Fleksibilitas Pembayaran SPP (Prioritas 2)
+* **Insight Data:** Sebanyak **457 mahasiswa** mahasiswa yang menunggak SPP berakhir *dropout*, dan kelompok non-beasiswa menyumbang *dropout* terbanyak (1.287 mahasiswa).
+* **Aksi Strategis:**
+  * Memberikan fasilitas skema cicilan pembayaran SPP atau penundaan pembayaran berbasis permohonan bagi mahasiswa yang berdampak finansial.
+  * Dialokasikannya sebagian anggaran beasiswa secara khusus bagi mahasiswa aktif (*Enrolled*) yang berprestasi atau berisiko *dropout* akibat kendala finansial mendadak.
+
+### 3. Program Pendampingan Khusus Mahasiswa Usia Dewasa & Non-Reguler (Prioritas 3)
+* **Insight Data:** Mahasiswa yang masuk di usia **> 25 tahun** memiliki tingkat *dropout* yang juga tinggi.
+* **Aksi Strategis:**
+  * Menyediakan layanan kelas fleksibel (*hybrid/online learning*) atau jadwal konsultasi malam/akhir pekan bagi mahasiswa pendaftar usia dewasa yang memiliki komitmen kerja atau keluarga.
+  * Membentuk program komunitas bimbingan khusus untuk membantu mahasiswa non-reguler beradaptasi kembali dengan ritme perkuliahan.
